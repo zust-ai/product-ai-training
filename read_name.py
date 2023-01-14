@@ -17,14 +17,11 @@ concepts_list = [
 instance_images_path = []
 for concept in concepts_list:
     inst_img_path = [(x, concept["instance_prompt"]) for x in Path(concept["instance_data_dir"]).iterdir() if x.is_file()]
-    print(inst_img_path)
     instance_images_path.extend(inst_img_path)
 
-    for class_dir in concept['custom_class_dirs']:
-        print(class_dir)
+    for class_dir in concept.get('custom_class_dirs', []):
         inst_img_path = []
         for x in Path(class_dir).iterdir():
-            print(x)
             if x.is_file() and x.suffix == '.jpg':
                 txt_path = x.with_suffix('.txt')
                 txt = ""
