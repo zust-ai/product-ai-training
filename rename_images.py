@@ -9,7 +9,7 @@ folder_path = f'classes/{name}'
 # Get the list of files in the folder
 files = os.listdir(folder_path)
 
-supported_ext = ['.png', '.jpg']
+supported_ext = ['.png', '.jpg', '.webp']
 
 count = 1
 
